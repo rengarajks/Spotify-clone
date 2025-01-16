@@ -22,8 +22,8 @@ const Homepage = ({data,index,setIndex}) => {
       setSearch(true);
       const filteredData = data.filter(
         (item) =>
-          item.title.toLowerCase().includes(e.target.value) ||
-          item.songName.toLowerCase().includes(e.target.value)
+          item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          item.songName.toLowerCase().includes(e.target.value.toLowerCase())
       );
       setFiltered(filteredData);
     }
