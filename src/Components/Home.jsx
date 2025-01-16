@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar/Navbar'
 import Sidebar from './Sidebar/Sidebar'
 import Homepage from './Home/Homepage'
 import Player from './Player/Player'
-import { Route, Routes } from 'react-router'
+import { Route, Routes, useNavigate } from 'react-router'
 import Playlist from './Playlist/Playlist'
-import Search from './Search/Search'
+import Myplaylist from './Wishlist/Myplaylist'
+import { GoHomeFill } from 'react-icons/go'
+import { LuLibrary } from 'react-icons/lu'
 
 const tamilSongs=[
   {
@@ -50,7 +52,16 @@ const tamilSongs=[
 ]
 
 const Home = () => {
+  const nav=useNavigate();
   const [index,setIndex]=useState(0);
+  const[dam,setDam]=useState([]);
+  useEffect(() => {
+    // Retrieve and parse the saved dam data from localStorage
+    const savedDam = localStorage.getItem('dam');
+    if (savedDam) {
+      setDam(JSON.parse(savedDam)); // Convert string back to an array
+    }
+  }, []);
   return (
     <div className='h-[100vh] text-white'>
         
@@ -60,17 +71,33 @@ const Home = () => {
             </div>
             <div className='col-span-12 sm:col-span-10 bg-black/95 h-[100vh]'>
                {/* <Navbar/> */}
-               <div className='px-4'>
+               <div className=''>
                  <Routes>
-                  <Route path='/' element={<Homepage/>} />
-                  <Route path='/search' element={<Search/>} />
-                  <Route path='/playlist/:main/:sub' element={<Playlist data={tamilSongs} index={index} setIndex={setIndex}/>} />
+                  <Route path='/' element={<Homepage data={tamilSongs}/>} index={index} setIndex={setIndex}/>
+                  <Route path='/playlist/:main/:sub' element={<Playlist dam={dam} setDam={setDam} data={tamilSongs} index={index} setIndex={setIndex}/>} />
+                  <Route path='/myplaylist' element={<Myplaylist dam={dam} setDam={setDam} data={tamilSongs} index={index} setIndex={setIndex}/>} />
                  </Routes>
                </div>
             </div>
         </div>
 
-        <Player data={tamilSongs} index={index} setIndex={setIndex}/>
+        <div className='absolute bottom-0 bg-neutral-900 w-full'>
+          
+          <Player data={tamilSongs} index={index} setIndex={setIndex}/>
+          
+          <div className='sm:hidden block visible text-xs'>
+            <div className='grid grid-cols-2 pt-2 pb-4'>
+              <div onClick={()=>nav('/')} className='flex flex-col items-center'>
+               <GoHomeFill size='1.3rem'/>
+                Home
+              </div>
+              <div onClick={()=>nav('/myplaylist')} className='flex flex-col items-center'>
+                <LuLibrary size='1.3rem'/>
+                Your Library
+              </div>
+            </div>
+          </div>
+        </div>
 
     </div>
   )

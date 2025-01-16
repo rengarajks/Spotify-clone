@@ -33,9 +33,9 @@ const Player = ({data,index,setIndex}) => {
 
   console.log('CURRENT=',currentTrack)
   return (
-    <div className={`absolute w-full ${isHidden?'h-full':''} bottom-0 grid grid-cols-12 items-center bg-slate-950 px-2`}>
+    <div className={`border-b border-black shadow-md ${isHidden?'h-full':''}  grid grid-cols-12 items-center `}>
     
-      <div className={`${isHidden?'col-span-12':'col-span-5 sm:col-span-2 flex items-center'}  px-4 gap-1`}>
+      <div className={`${isHidden?'col-span-12 pt-10':'col-span-5 sm:col-span-2 flex items-center'}  px-4  gap-1`}>
         
         <div className={`flex justify-between items-center py-4 px-2 hidden${isHidden?'block visible':''}`}>
           <div className='text-[1.4rem] rounded-full hover:bg-gray-700 hover:text-[#1ED760] cursor-pointer' onClick={handleHide}><FaAngleDown/></div>
@@ -43,11 +43,11 @@ const Player = ({data,index,setIndex}) => {
           <div ><BsThreeDotsVertical className='text-[1.2]' /></div>
         </div>
         
-        <div className={` ${isHidden?'hidden':'sm:hidden block visible'}`}>
+        {/* <div className={` ${isHidden?'hidden':'sm:hidden block visible'}`}>
            <FaAngleUp className='text-[2.5rem] rounded-md hover:bg-gray-700 px-2 py-2 hover:text-[#1ED760] cursor-pointer' onClick={handleHide}/>
-        </div>
+        </div> */}
 
-        <div className={`${isHidden?'h-[68vh] ':'h-12 w-12'} overflow-hidden rounded-md`}>
+        <div onClick={handleHide} className={`${isHidden?'h-[68vh] ':'h-12 w-12'} overflow-hidden rounded-md`}>
           <img className='w-full h-full object-contain rounded-md' src={currentTrack?.image}/>
         </div>
 
@@ -63,20 +63,22 @@ const Player = ({data,index,setIndex}) => {
       </div>
 
       <div className={`${isHidden?'col-span-12':'col-span-7 sm:col-span-8'}`}>
-        <AudioPlayer
-        showFilledProgress
-        showSkipControls={true} // Keep next and previous buttons if needed
-        showJumpControls={false} // This removes the default skip buttons
-          autoPlay
-          src={currentTrack?.song || 'default-audio-url'} 
-          onPlay={e => console.log("onPlay")}
-          onClickNext={handleNext}
-          onClickPrevious={handlePrevious}
-          style={{
-            backgroundColor: 'transparent',
-            width: '100%',
-          }}
-        />
+        <div className=''>
+          <AudioPlayer
+          showFilledProgress
+          showSkipControls={true} // Keep next and previous buttons if needed
+          showJumpControls={false} // This removes the default skip buttons
+            autoPlay
+            src={currentTrack?.song || 'default-audio-url'} 
+            onPlay={e => console.log("onPlay")}
+            onClickNext={handleNext}
+            onClickPrevious={handlePrevious}
+            style={{
+              backgroundColor: 'transparent',
+              width: '100%',
+            }}
+          />
+        </div>
       </div>
 
       <div className={`col-span-2 ${isHidden?'hidden':'hidden sm:block sm:visible'}`}>
