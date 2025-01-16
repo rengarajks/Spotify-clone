@@ -12,21 +12,35 @@ const tamilSongs=[
     image:'https://akm-img-a-in.tosshub.com/indiatoday/images/story/media_bank/202310/thalapathy-vijay--leo-trailer--leo-055254961-3x4.jpg?VersionId=KyHENRVeoTxwDpgTUBKD.bskddYXVn0I',
     title:'Leo',
     songName:'Badass',
-    song:'https://masstamilan.dev/downloader/I8IBzpioYCHTv4Yj1YuFnQ/1736930574/d128_cdn/24859/NDIuMTA2LjE4NC42OA=='
+    song:'tamil/Badass-MassTamilan.dev.mp3'
   },
   {
     image:'https://akm-img-a-in.tosshub.com/indiatoday/images/story/media_bank/202310/thalapathy-vijay--leo-trailer--leo-055254961-3x4.jpg?VersionId=KyHENRVeoTxwDpgTUBKD.bskddYXVn0I',
     title:'Leo',
     songName:'Anbenum ayudham',
-    song:'https://masstamilan.dev/downloader/I8IBzpioYCHTv4Yj1YuFnQ/1736930574/d128_cdn/24858/NDIuMTA2LjE4NC42OA=='
+    song:'tamil/Anbenum-MassTamilan.dev.mp3'
   },
   {
-    image:'https://a10.gaanacdn.com/gn_img/albums/g4w3vwrWjJ/w3v5AEBrKj/size_m_1687451320.webp',
+    image:'https://assets.timelinedaily.com/w/1203x902/2024/09/goat-thumb-1114x900.jpg.webp',
+    title:'GOAT',
+    songName:'Whistle podu',
+    song:'tamil/Whistle Podu.mp3'
+  }
+  ,
+  {
+    image:'https://i.ytimg.com/vi/hylIXfZeB4c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBsdMk5ReREq6-tMaG2xCZJ5dYBmA',
+    title:'Amaran',
+    songName:'Hey minnaley',
+    song:'tamil/Hey Minnale.mp3'
+  }
+  ,
+  {
+    image:'https://upload.wikimedia.org/wikipedia/en/7/7e/Naa_Ready_song_cover.jpg',
     title:'Leo',
     songName:'Naa Ready',
-    song:'https://masstamilan.dev/downloader/I8IBzpioYCHTv4Yj1YuFnQ/1736930574/d128_cdn/24856/NDIuMTA2LjE4NC42OA=='
-  }
-  // ,
+    song:'Naa-Ready-MassTamilan.dev.mp3'
+  },
+    // ,
   // {
   //   image:'',
   //   title:'Leo',

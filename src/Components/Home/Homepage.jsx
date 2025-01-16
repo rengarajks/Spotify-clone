@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router';
+import Navbar from '../Navbar/Navbar';
 
 const foryou=[1];
 const Homepage = () => {
@@ -9,6 +10,7 @@ const Homepage = () => {
   }
   return (
     <div>
+      <Navbar/>
       {/* FOR YOU */}
       <div>
         <h1 className='font-semibold text-lg'>For You</h1>
